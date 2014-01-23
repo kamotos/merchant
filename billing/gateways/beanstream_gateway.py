@@ -239,7 +239,7 @@ class BeanstreamGateway(Gateway):
 
     def recurring(self, money, creditcard, options=None):
         """Setup a recurring transaction"""
-        card = self.convert_cc(creditcard)
+        card = self.convert_cc(creditcard, False)
         frequency_period = options['frequency_period']
         frequency_increment = options['frequency_increment']
         billing_address = options.get('billing_address', None) # must be a beanstream.billing.Address instance
