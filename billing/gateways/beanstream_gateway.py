@@ -145,8 +145,8 @@ class BeanstreamGateway(Gateway):
 
     def authorize(self, money, credit_card, options=None):
         """Authorization for a future capture transaction"""
-        # TODO: Need to add check for trnAmount 
-        # For Beanstream Canada and TD Visa & MasterCard merchant accounts this value may be $0 or $1 or more. 
+        # TODO: Need to add check for trnAmount
+        # For Beanstream Canada and TD Visa & MasterCard merchant accounts this value may be $0 or $1 or more.
         # For all other scenarios, this value must be $0.50 or greater.
         options = options or {}
         order_number = options.get("order_number") if options else None
@@ -240,6 +240,8 @@ class BeanstreamGateway(Gateway):
     def recurring(self, money, creditcard, options=None):
         """Setup a recurring transaction"""
         card = self.convert_cc(creditcard, False)
+        card = self.convert_cc(creditcard)
+
         frequency_period = options['frequency_period']
         frequency_increment = options['frequency_increment']
         billing_address = options.get('billing_address', None) # must be a beanstream.billing.Address instance

@@ -3,13 +3,53 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. _index:
+
 Welcome to Merchant's documentation!
 ======================================
 
 Contents:
 
+
 .. toctree::
-   :maxdepth: 2
+   :hidden:
+
+   index
+   overview
+   install
+   credit_card
+   gateways
+
+   onsite_processing
+
+   gateways/authorize_net
+   gateways/beanstream_gateway
+   gateways/bitcoin_gateway
+   gateways/braintree_payments
+   gateways/chargebee_gateway
+   gateways/eway_gateway
+   gateways/paylane_gateway
+   gateways/paypal_gateway
+   gateways/stripe_payment
+   gateways/we_pay_gateway
+
+   offsite_processing
+
+   offsite/paypal
+   offsite/google_checkout
+   offsite/rbs_worldpay
+   offsite/amazon_fps
+   offsite/braintree_payments
+   offsite/stripe_integration
+   offsite/eway_au
+   offsite/authorize_net_dpm
+
+   signals
+   custom_gateway
+   customize
+   contributing
+   changelist
+
 
 * :doc:`Overview <overview>`
 * :doc:`Install Merchant <install>`
@@ -28,6 +68,7 @@ Contents:
     * :doc:`Beanstream  <gateways/beanstream_gateway>`
     * :doc:`Chargebee  <gateways/chargebee_gateway>`
     * :doc:`Bitcoin <gateways/bitcoin_gateway>`
+    * :doc:`Global Iris <gateways/global_iris_gateway>`
 
   * :doc:`Off-site Processing <offsite_processing>`
 
@@ -39,6 +80,7 @@ Contents:
     * :doc:`Stripe  <offsite/stripe_integration>`
     * :doc:`eWAY <offsite/eway_au>`
     * :doc:`Authorize.Net Direct Post Method <offsite/authorize_net_dpm>`
+    * :doc:`Global Iris RealMPI <offsite/global_iris_real_mpi_integration>`
 
 * :doc:`Signals <signals>`
 * :doc:`Writing your own gateway <custom_gateway>`
