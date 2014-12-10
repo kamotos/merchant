@@ -1,5 +1,7 @@
+from billing.gateway import get_gateway
 from django.db import models
 from payzone.client import Transaction
+
 
 
 class PayzoneTransaction(models.Model):
@@ -16,4 +18,14 @@ class PayzoneTransaction(models.Model):
 
     def next_url(self):
         return Transaction.get_dopay_url(self.customer_token)
+
+    def update_status(self):
+        # Updating transaction status
+        payzone_gt = get_gateway('payzone')
+        transaction_status = payzone_gt.payzone.transaction.status(
+            self.merchant_token
+        )
+        self.status = transaction_status['status'].lower()
+        self.transaction_id = transaction_status['transactionID']
+        self.save()
 
